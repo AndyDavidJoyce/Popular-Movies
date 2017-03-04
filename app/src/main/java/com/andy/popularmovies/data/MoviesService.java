@@ -1,5 +1,7 @@
 package com.andy.popularmovies.data;
 
+import com.andy.popularmovies.data.model.MovieResponse;
+
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -10,8 +12,8 @@ import rx.Observable;
 public interface MoviesService {
 
     @GET("/popular")
-    Observable<String> getPopularMovies();
+    Observable<MovieResponse> getPopularMovies();
 
-    @GET("/popular")
-    Observable<String> getTopRatedMovies();
+    @GET("/top_rated")
+    Observable<MovieResponse> getTopRatedMovies();
 }

@@ -11,7 +11,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Movie implements Parcelable {
 
-
     private String id;
     private String title;
     private String overview;
