@@ -1,4 +1,4 @@
-package com.andy.popularmovies.data;
+package com.andy.popularmovies.data.remote;
 
 import com.andy.popularmovies.data.model.MovieResponse;
 
