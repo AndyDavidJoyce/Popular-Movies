@@ -1,7 +1,9 @@
-package com.andy.popularmovies;
+package com.andy.popularmovies.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.andy.popularmovies.R;
 
 public class MainActivity extends AppCompatActivity {
 
