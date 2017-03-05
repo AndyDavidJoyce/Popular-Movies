@@ -22,6 +22,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     @BindView(R.id.recycler_movies) RecyclerView moviesRecyclerView;
     @BindView(R.id.progress_movies) ProgressBar moviesProgressBar;
 
+    //private MoviesPresenter moviesPresenter = new MoviesPresenter();
     private MoviesAdapter moviesAdapter = new MoviesAdapter(this);
 
     @Override
@@ -38,7 +39,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     }
 
     private void setUpPresenter() {
-
+        //moviesPresenter.attachView(this);
     }
 
     private void setUpMovieRecyclerView() {
@@ -49,7 +50,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
 
     @Override
     public void onMovieClicked(Movie movie) {
-
+        //moviesPresenter.openMovieDetail(movie);
     }
 
     @Override
@@ -63,9 +64,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     }
 
     @Override
-    public void showError() {
-
-    }
+    public void showError() {}
 
     @Override
     public void navigateToMovieDetail(Movie movie) {
