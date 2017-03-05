@@ -6,6 +6,6 @@ import com.andy.popularmovies.data.model.Movie;
  * Created by andrewjoyce on 05/03/2017.
  */
 
-public interface MovieClickListener {
+public interface OnMovieClickListener {
     void onMovieClicked(Movie movie);
 }

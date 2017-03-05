@@ -10,6 +10,7 @@ import com.andy.popularmovies.R;
 import com.andy.popularmovies.data.model.Movie;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -20,10 +21,10 @@ import butterknife.ButterKnife;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
-    private MovieClickListener movieClickListener;
-    private List<Movie> movies;
+    private OnMovieClickListener movieClickListener;
+    private List<Movie> movies = new ArrayList<>();
 
-    public MoviesAdapter(MovieClickListener movieClickListener) {
+    public MoviesAdapter(OnMovieClickListener movieClickListener) {
         this.movieClickListener = movieClickListener;
     }
 
@@ -51,7 +52,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public int getItemCount() {
-        return movies == null ? 0 : movies.size();
+        return movies.size();
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
