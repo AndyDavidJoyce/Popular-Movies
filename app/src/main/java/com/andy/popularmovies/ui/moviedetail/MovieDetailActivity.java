@@ -7,7 +7,7 @@ import com.andy.popularmovies.R;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
-    private static final String BUNDLE_MOVIE = "BUNDLE_MOVIE";
+    public static final String BUNDLE_MOVIE = "BUNDLE_MOVIE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

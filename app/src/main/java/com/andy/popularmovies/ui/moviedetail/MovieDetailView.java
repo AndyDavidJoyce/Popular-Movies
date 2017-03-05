@@ -7,4 +7,5 @@ import com.andy.popularmovies.ui.base.MvpView;
  */
 
 public interface MovieDetailView extends MvpView {
+
 }
