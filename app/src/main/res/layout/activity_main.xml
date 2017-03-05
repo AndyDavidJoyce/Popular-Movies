@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.andy.popularmovies.ui.MainActivity">
+    tools:context="com.andy.popularmovies.ui.movies.MoviesActivity">
 
     <ProgressBar
         android:id="@+id/progress_movies"
