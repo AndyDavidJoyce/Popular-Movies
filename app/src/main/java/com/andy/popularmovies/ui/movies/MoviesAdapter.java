@@ -1,6 +1,7 @@
 package com.andy.popularmovies.ui.movies;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -47,7 +49,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     public void addMovies(List<Movie> movies) {
         this.movies.clear();
         this.movies.addAll(movies);
-        notifyItemRangeChanged(0, movies.size());
+        notifyDataSetChanged();
     }
 
     @Override
@@ -57,7 +59,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView movieThumbNailImageView;
+        @BindView(R.id.image_movie_thumbnail) ImageView movieThumbNailImageView;
 
         public MovieViewHolder(View itemView) {
             super(itemView);

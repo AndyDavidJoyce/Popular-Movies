@@ -61,7 +61,7 @@ public class NetModule {
     @Singleton
     public MoviesService provideMovieService(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.themoviedb.org/3/movie")
+                .baseUrl("http://api.themoviedb.org/3/movie/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)

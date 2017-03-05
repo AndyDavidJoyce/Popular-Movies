@@ -1,11 +1,16 @@
 package com.andy.popularmovies.ui.movies;
 
+import android.util.Log;
+
 import com.andy.popularmovies.data.model.Movie;
 import com.andy.popularmovies.data.repository.MovieRepository;
 import com.andy.popularmovies.ui.base.BasePresenter;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -18,15 +23,17 @@ public class MoviesPresenter extends BasePresenter<MoviesView> {
 
     private MovieRepository movieRepository;
 
+    @Inject
     public MoviesPresenter(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
     public void loadPopularMovies() {
+        Log.d("Movie Presenter", "Load Popular Movies");
         getMvpView().showLoading(true);
         movieRepository.loadPopularMovies()
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<List<Movie>>() {
                     @Override
                     public void onCompleted() {}
@@ -36,6 +43,7 @@ public class MoviesPresenter extends BasePresenter<MoviesView> {
                         if (isViewAttached()) {
                             getMvpView().showLoading(false);
                             getMvpView().showError();
+                            Log.d("Movie Presenter", "Popular Movies Error " + e.toString());
                         }
                     }
 
@@ -52,8 +60,8 @@ public class MoviesPresenter extends BasePresenter<MoviesView> {
     public void loadTopRatedMovies() {
         getMvpView().showLoading(true);
         movieRepository.loadTopRatedMovies()
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<List<Movie>>() {
                     @Override
                     public void onCompleted() {}

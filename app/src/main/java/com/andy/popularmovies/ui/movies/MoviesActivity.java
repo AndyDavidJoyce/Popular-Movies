@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.andy.popularmovies.PopularMoviesApplication;
 import com.andy.popularmovies.R;
 import com.andy.popularmovies.data.model.Movie;
 import com.andy.popularmovies.ui.moviedetail.MovieDetailActivity;
@@ -30,6 +31,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((PopularMoviesApplication)getApplication()).getComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         init();
@@ -42,6 +44,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
 
     private void setUpPresenter() {
         moviesPresenter.attachView(this);
+        moviesPresenter.loadPopularMovies();
     }
 
     private void setUpMovieRecyclerView() {
@@ -58,6 +61,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     @Override
     public void showLoading(boolean loading) {
         moviesProgressBar.setVisibility(loading ? View.VISIBLE : View.INVISIBLE);
+        moviesRecyclerView.setVisibility(loading ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override
