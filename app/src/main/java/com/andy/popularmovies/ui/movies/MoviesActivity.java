@@ -14,6 +14,8 @@ import com.andy.popularmovies.ui.moviedetail.MovieDetailActivity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -22,7 +24,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     @BindView(R.id.recycler_movies) RecyclerView moviesRecyclerView;
     @BindView(R.id.progress_movies) ProgressBar moviesProgressBar;
 
-    //private MoviesPresenter moviesPresenter = new MoviesPresenter();
+    @Inject MoviesPresenter moviesPresenter;
     private MoviesAdapter moviesAdapter = new MoviesAdapter(this);
 
     @Override
@@ -39,7 +41,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
     }
 
     private void setUpPresenter() {
-        //moviesPresenter.attachView(this);
+        moviesPresenter.attachView(this);
     }
 
     private void setUpMovieRecyclerView() {
@@ -50,7 +52,7 @@ public class MoviesActivity extends AppCompatActivity implements MoviesView, OnM
 
     @Override
     public void onMovieClicked(Movie movie) {
-        //moviesPresenter.openMovieDetail(movie);
+        moviesPresenter.openMovieDetail(movie);
     }
 
     @Override

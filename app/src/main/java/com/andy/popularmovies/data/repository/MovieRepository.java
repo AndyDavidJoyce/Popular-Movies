@@ -6,6 +6,9 @@ import com.andy.popularmovies.data.remote.MoviesService;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -17,6 +20,7 @@ public class MovieRepository {
 
     private MoviesService moviesService;
 
+    @Inject
     public MovieRepository(MoviesService moviesService) {
         this.moviesService = moviesService;
     }
