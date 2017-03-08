@@ -8,6 +8,6 @@
 
     <string name="movie_releasedate_text">Release Date: %1$s </string>
     <string name="movie_votecount_text">Vote Count: %1$s </string>
-    <string name="movie_share_content">Movie Title: %1$s \n\n Movie Description: %2$s \n\n Movie Release: %3$s \n\n Movie Rating: %4$s </string>
+    <string name="movie_share_content">Movie Title: %1$s \n\n Movie Description: %2$s \n\n Movie Release: %3$s \n\n </string>
 
 </resources>
