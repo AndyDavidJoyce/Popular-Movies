@@ -89,7 +89,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieDetai
         try {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(android.content.Intent.EXTRA_TEXT, String.format(getString(R.string.movie_share_content), movie.getTitle(), movie.getOverview(), movie.getRelease(), movie.getVoteCount()));
+            intent.putExtra(android.content.Intent.EXTRA_TEXT, String.format(getString(R.string.movie_share_content), movie.getTitle(), movie.getOverview(), movie.getRelease()));
             startActivity(Intent.createChooser(intent, getString(R.string.title_share_movie)));
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
