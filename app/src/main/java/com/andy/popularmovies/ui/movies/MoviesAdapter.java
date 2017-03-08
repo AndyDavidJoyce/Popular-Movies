@@ -1,7 +1,7 @@
 package com.andy.popularmovies.ui.movies;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +9,8 @@ import android.widget.ImageView;
 
 import com.andy.popularmovies.R;
 import com.andy.popularmovies.data.model.Movie;
+import com.andy.popularmovies.ui.base.BaseAdapter;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,40 +19,31 @@ import butterknife.ButterKnife;
  * Created by andrewjoyce on 04/03/2017.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
+public class MoviesAdapter extends BaseAdapter<Movie, MoviesAdapter.MovieViewHolder> {
 
-    private OnMovieClickListener movieClickListener;
-    private List<Movie> movies = new ArrayList<>();
+    private Context context;
+    private OnMovieClickListener onMovieClickListener;
 
-    public MoviesAdapter(OnMovieClickListener movieClickListener) {
-        this.movieClickListener = movieClickListener;
+    public MoviesAdapter(Context context, OnMovieClickListener onMovieClickListener) {
+        this.context = context;
+        this.onMovieClickListener = onMovieClickListener;
     }
 
     @Override
-    public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MovieViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false));
+    public MovieViewHolder onCreateCustomViewHolder(ViewGroup parent, int viewType) {
+        return new MovieViewHolder(LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(MovieViewHolder holder, int position) {
-        final Movie movie = movies.get(position);
+    public void onBindCustomViewHolder(final MovieViewHolder holder, int position) {
+        final Movie movie = getItemAtPosition(position);
+        Picasso.with(holder.itemView.getContext()).load(movie.getPosterImageUrl()).into(holder.movieThumbNailImageView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {movieClickListener.onMovieClicked(movie);
+            public void onClick(View view) {
+                onMovieClickListener.onMovieClicked(movie);
             }
         });
-        Picasso.with(holder.itemView.getContext()).load(movie.getPosterImageUrl()).into(holder.movieThumbNailImageView);
-    }
-
-    public void addMovies(List<Movie> movies) {
-        this.movies.clear();
-        this.movies.addAll(movies);
-        notifyDataSetChanged();
-    }
-
-    @Override
-    public int getItemCount() {
-        return movies.size();
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {

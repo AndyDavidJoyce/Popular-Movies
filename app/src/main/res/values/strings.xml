@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">PopularMovies</string>
 
+    <string name="title_movies">Movies</string>
+    <string name="title_share_movie">Share Movie</string>
+    <string name="title_top_rated">Top Rated</string>
+    <string name="title_popular">Popular</string>
 
-    <string name="popular_movies_title">Popular Movies</string>
+    <string name="movie_releasedate_text">Release Date: %1$s </string>
+    <string name="movie_votecount_text">Vote Count: %1$s </string>
+    <string name="movie_share_content">Movie Title: %1$s \n\n Movie Description: %2$s \n\n Movie Release: %3$s \n\n Movie Rating: %4$s </string>
 
 </resources>

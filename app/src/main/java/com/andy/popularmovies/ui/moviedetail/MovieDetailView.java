@@ -9,4 +9,5 @@ import com.andy.popularmovies.ui.base.MvpView;
 
 public interface MovieDetailView extends MvpView {
     void showMovieDetails(Movie movie);
+    void showShareOptions(Movie movie);
 }

@@ -1,5 +1,6 @@
 package com.andy.popularmovies.ui.moviedetail;
 
+import com.andy.popularmovies.data.model.Movie;
 import com.andy.popularmovies.ui.base.BasePresenter;
 
 /**
@@ -8,4 +9,8 @@ import com.andy.popularmovies.ui.base.BasePresenter;
 
 public class MovieDetailPresenter extends BasePresenter<MovieDetailView> {
 
+    public void setMovie(Movie movie) {
+        getMvpView().showMovieDetails(movie);
+    }
+    public void shareMovie(Movie movie) { getMvpView().showShareOptions(movie);}
 }

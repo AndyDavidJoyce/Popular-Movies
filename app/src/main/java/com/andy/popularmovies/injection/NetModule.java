@@ -1,21 +1,9 @@
 package com.andy.popularmovies.injection;
 
-import android.app.Application;
-import android.os.Build;
-import android.provider.Settings;
-
 import com.andy.popularmovies.data.remote.MoviesService;
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Singleton;
-import javax.net.ssl.SSLContext;
 
 import dagger.Module;
 import dagger.Provides;
@@ -47,8 +35,7 @@ public class NetModule {
                 HttpUrl url = originalHttpUrl.newBuilder()
                         .addQueryParameter("api_key", "your-actual-api-key")
                         .build();
-                Request.Builder requestBuilder = original.newBuilder()
-                        .url(url);
+                Request.Builder requestBuilder = original.newBuilder().url(url);
                 Request request = requestBuilder.build();
                 return chain.proceed(request);
             }

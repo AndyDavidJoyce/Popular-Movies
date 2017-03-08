@@ -12,7 +12,5 @@ import java.util.List;
 interface MoviesView extends MvpView {
     void showLoading(boolean loading);
     void showMovies(List<Movie> movies);
-    void showError();
     void navigateToMovieDetail(Movie movie);
-
 }

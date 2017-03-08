@@ -14,11 +14,13 @@
         <activity android:name=".ui.movies.MoviesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.moviedetail.MovieDetailActivity"></activity>
+        <activity android:name=".ui.moviedetail.MovieDetailActivity"
+            android:theme="@style/TransparentAppTheme">
+
+        </activity>
     </application>
 
 </manifest>
